@@ -115,7 +115,7 @@ export function Dashboard() {
 
   // Cluster data for refresh functionality and stats - most cards depend on this
   // Use deduplicated clusters to avoid double-counting same server with different contexts
-  const { deduplicatedClusters: clusters, isRefreshing: dataRefreshing, lastUpdated, refetch, isLoading: isClustersLoading } = useClusters()
+  const { deduplicatedClusters: clusters, isRefreshing: dataRefreshing, lastUpdated, refetch, isLoading: isClustersLoading, error: clustersError } = useClusters()
   const { showIndicator, triggerRefresh } = useRefreshIndicator(refetch)
   const isRefreshing = dataRefreshing || showIndicator
   const isFetching = isClustersLoading || isRefreshing || showIndicator
@@ -822,6 +822,7 @@ export function Dashboard() {
         onAutoRefreshChange={setAutoRefresh}
         autoRefreshId="dashboard-auto-refresh"
         lastUpdated={lastUpdated}
+        error={clustersError}
       />
 
       {/* Configurable Stats Overview */}

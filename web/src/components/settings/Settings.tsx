@@ -23,7 +23,7 @@ PredictionSettingsSection,
 } from './sections'
 
 export function Settings() {
-  const { user, refreshUser } = useAuth()
+  const { user, refreshUser, isLoading: isUserLoading } = useAuth()
   const { themeId, setTheme, themes, currentTheme } = useTheme()
   const { usage, updateSettings, resetUsage } = useTokenUsage()
   const { mode, setMode, description } = useAIMode()
@@ -55,6 +55,7 @@ export function Settings() {
           initialEmail={user?.email || ''}
           initialSlackId={user?.slackId || ''}
           refreshUser={refreshUser}
+          isLoading={isUserLoading}
         />
 
         {/* Local Agent */}
