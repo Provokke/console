@@ -393,7 +393,7 @@ export function StatBlockFactoryModal({ isOpen, onClose, onStatsCreated }: StatB
                           <button
                             onClick={() => setEditingBlockIcon(editingBlockIcon === idx ? null : idx)}
                             className={cn(
-                              'p-1.5 rounded-md border transition-colors',
+                              'p-2 rounded-md border transition-colors min-h-11 min-w-11 flex items-center justify-center',
                               editingBlockIcon === idx
                                 ? 'border-purple-500 bg-purple-500/10'
                                 : 'border-border bg-secondary/50 hover:border-purple-500/50',
